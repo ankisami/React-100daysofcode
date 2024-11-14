@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import "./App.css";
 
 function App() {
+  console.log("App re-rendered");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      Day 1 - React challenge
+      <p>Testing re-render component</p>
+      <Component1 />
     </div>
   );
 }
 
 export default App;
+
+const Component1 = (): React.JSX.Element => {
+  console.log("Component1 re-rendered");
+  const [counter, setCounter] = useState(0);
+
+  return (
+    <div>
+      <Component2 count={counter} setCounter={setCounter} />
+    </div>
+  );
+};
+
+const Component2 = ({
+  count,
+  setCounter,
+}: {
+  count: number;
+  setCounter: React.Dispatch<React.SetStateAction<number>>;
+}): React.JSX.Element => {
+  console.log("Component2 re-rendered");
+
+  return (
+    <div>
+      <p>{count}</p>
+      <button onClick={() => setCounter((prev) => prev + 1)}>
+        Add element
+      </button>
+    </div>
+  );
+};
