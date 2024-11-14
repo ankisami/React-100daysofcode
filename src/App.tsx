@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 
 function App() {
@@ -6,6 +6,12 @@ function App() {
 
   return (
     <div className="App">
+      <header>
+        <link
+          rel="stylesheet"
+          href="https://www.100daysofcode.io/learn/reactjs"
+        />
+      </header>
       Day 1 - React challenge
       <p>Testing re-render component</p>
       <Component1 />
